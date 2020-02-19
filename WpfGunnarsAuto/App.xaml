@@ -4,6 +4,71 @@
              xmlns:local="clr-namespace:WpfGunnarsAuto"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+        <!-- DataGrid -->
+
+        
+        <!--DataGridColumnHeader-->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="0,0,1,1" />
+            <Setter Property="BorderBrush"
+                    Value="#FFD5DFE5" />
+            <Setter Property="Padding"
+                    Value="7" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="LightGray" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!-- DataGridRow-->
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="Transparent" />
+                </Trigger>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="LightGray" />
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <!-- DataGridCell -->
+        <Style TargetType="DataGridCell">
+            <Setter Property="FontSize"
+                    Value="27" />
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="Transparent" />
+                    <Setter Property="Foreground"
+                            Value="Black" />
+                    <Setter Property="BorderThickness"
+                            Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

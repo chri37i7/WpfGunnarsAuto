@@ -8,9 +8,9 @@ namespace WpfGunnarsAuto
     class Repository
     {
         // Lists for sql table data
-        private List<Car> cars;
-        private List<Sale> sales;
-        private List<SalesPerson> salesPersons;
+        private readonly List<Car> cars;
+        private readonly List<Sale> sales;
+        private readonly List<SalesPerson> salesPersons;
 
         // Sql connection path
         private const string connectionString = @"
@@ -29,50 +29,18 @@ namespace WpfGunnarsAuto
             cars = new List<Car>();
             sales = new List<Sale>();
             salesPersons = new List<SalesPerson>();
-
-            // Load data from sql tables
-            LoadCarsFromDB();
-            LoadSalesFromDB();
-            LoadSalesPersonsFromDB();
         }
 
         /*
-         * Get Methods
+         * Select Methods
          */
 
         public List<Car> GetAllCars()
         {
-            return cars;
-        }
-
-        public List<Sale> GetAllSales()
-        {
-            return sales;
-        }
-
-        public List<SalesPerson> GetAllSalesPersons()
-        {
-            return salesPersons;
-        }
-
-        /*
-         * Add to database methods
-         */
-
-            // Add methods
-
-
-
-        /*
-         * Load from database methods
-         */
-
-        private void LoadCarsFromDB()
-        {
-            string sql = "SELECT * FROM Cars";
+            string query = "SELECT * FROM Cars";
 
             SqlConnection connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(sql, connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
 
@@ -88,24 +56,28 @@ namespace WpfGunnarsAuto
                 string carType = (string)reader["CarType"];
 
                 Car car = new Car(
-                    carId, 
-                    make, 
-                    model, 
-                    vin, 
-                    registrationNumber, 
+                    carId,
+                    make,
+                    model,
+                    vin,
+                    registrationNumber,
                     carType);
 
                 cars.Add(car);
             }
             connection.Close();
+
+            command.Dispose();
+
+            return cars;
         }
 
-        private void LoadSalesFromDB()
+        public List<Sale> GetAllSales()
         {
-            string sql = "SELECT * FROM Sales";
+            string query = "SELECT * FROM Sales";
 
             SqlConnection connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(sql, connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
 
@@ -129,14 +101,18 @@ namespace WpfGunnarsAuto
                 sales.Add(sale);
             }
             connection.Close();
+
+            command.Dispose();
+
+            return sales;
         }
 
-        private void LoadSalesPersonsFromDB()
+        public List<SalesPerson> GetAllSalesPersons()
         {
-            string sql = "SELECT * FROM SalesPersons";
+            string query = "SELECT * FROM SalesPersons";
 
             SqlConnection connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(sql, connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
 
@@ -158,6 +134,29 @@ namespace WpfGunnarsAuto
                 salesPersons.Add(salesPerson);
             }
             connection.Close();
+
+            command.Dispose();
+
+            return salesPersons;
+        }
+
+        /*
+         * Update Methods
+         */
+
+        public void UpdateCar()
+        {
+
+        }
+
+        public void UpdateSale()
+        {
+
+        }
+
+        public void UpdateSalesPerson()
+        {
+
         }
     }
 }

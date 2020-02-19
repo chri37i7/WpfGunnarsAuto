@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfGunnarsAuto"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="650"
+        Width="1000">
     <Grid>
+        <!-- Columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*" />
+            <ColumnDefinition Width="40*" />
+        </Grid.ColumnDefinitions>
 
+        <!-- Rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"></RowDefinition>
+            <RowDefinition Height="225*"></RowDefinition>
+            <RowDefinition Height="37*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- DataGrid -->
+        <Border Grid.Column="0"
+                Grid.Row="1"
+                Padding="2"
+                BorderThickness="1"
+                Background="#FFD5DFE5"
+                Margin="5,12,1,0"
+                CornerRadius="5">
+            <DataGrid ItemsSource="{Binding Cars}"
+                      SelectedItem="{Binding SelectedCar}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      BorderThickness="0"
+                      BorderBrush="#FFD5DFE5"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Vertical"
+                      SelectionMode="Single"
+                      Background="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Car Brand"
+                                        Binding="{Binding Model}" />
+                    <DataGridTextColumn Header="Car Model"
+                                        Binding="{Binding Make}" />
+                    <DataGridTextColumn Header="Car Type"
+                                        Binding="{Binding CarType}" />
+                    <DataGridTextColumn Header="Car VIN number"
+                                        Binding="{Binding VIN}" />
+                    <DataGridTextColumn Header="Car Registration Number"
+                                        Binding="{Binding RegistrationNumber}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Controls GroupBox -->
+        <GroupBox Grid.Column="1"
+                  Header="Controls"
+                  BorderThickness="2"
+                  FontSize="16"
+                  Margin="0,79,0,0"
+                  Grid.RowSpan="2">
+            <StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Select User:"
+                               Width="148" />
+                        <ComboBox Width="144" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>
