@@ -30,12 +30,37 @@
         <!-- #endregion -->
         <!-- Header -->
         <!-- #region Header -->
-        <DockPanel Grid.Column="0"
-                   Grid.ColumnSpan="2"
-                   Grid.Row="0"
-                   Background="AntiqueWhite">
+        <Grid Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Grid.Row="0"
+              Background="AntiqueWhite">
 
-        </DockPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="1" Background="FloralWhite">
+                <!-- #region Select User Controls-->
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="Select User:"
+                               Width="110"
+                               TextAlignment="Center"
+                               FontSize="18"
+                               FontWeight="Light" />
+                    <ComboBox x:Name="comboBox_SelectUser"
+                              Height="35"
+                              Width="110"
+                              FontSize="18"
+                              HorizontalContentAlignment="Center"
+                              ItemsSource="{Binding SalesPersons}"
+                              DisplayMemberPath="Initials" />
+                </StackPanel>
+                <!-- #endregion -->
+            </DockPanel>
+        </Grid>
         <!-- #endregion -->
         <!-- Center DataGrids -->
         <!-- #region Left Center DataGrids -->
@@ -93,11 +118,11 @@
                       Background="FloralWhite">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Car ID"
-                                        Binding="{Binding CarId}"/>
+                                        Binding="{Binding CarId}" />
                     <DataGridTextColumn Header="Sale ID"
-                                        Binding="{Binding SaleId}"/>
+                                        Binding="{Binding SaleId}" />
                     <DataGridTextColumn Header="Sales Person"
-                                        Binding="{Binding SalesPersonId}"/>
+                                        Binding="{Binding SalesPersonId}" />
                     <DataGridTextColumn Header="Sales Type"
                                         Binding="{Binding SaleType}" />
                     <DataGridTextColumn Header="Sales Price"
@@ -137,21 +162,6 @@
             <!-- #region User Controls -->
             <DockPanel Grid.Row="1">
                 <StackPanel HorizontalAlignment="Center">
-                    <!-- #region Select User Controls-->
-                    <StackPanel Orientation="Vertical"
-                                Width="120">
-                        <TextBlock Text="Select User:"
-                                   TextAlignment="Center"
-                                   FontSize="18"
-                                   FontWeight="Light" />
-                        <ComboBox x:Name="comboBox_SelectUser"
-                                  Height="35"
-                                  FontSize="18"
-                                  HorizontalContentAlignment="Center"
-                                  ItemsSource="{Binding SalesPersons}"
-                                  DisplayMemberPath="Initials" />
-                    </StackPanel>
-                    <!-- #endregion -->
                     <!-- #region Add Car Controls-->
                     <GroupBox Header="Add Car"
                               Margin="0,20,0,0"
