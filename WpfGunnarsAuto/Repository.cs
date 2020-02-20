@@ -144,17 +144,63 @@ namespace WpfGunnarsAuto
          * Update Methods
          */
 
-        public void UpdateCar()
+        public void UpdateCar(Car car)
         {
 
         }
 
-        public void UpdateSale()
+        public void UpdateSale(Sale sale)
         {
 
         }
 
-        public void UpdateSalesPerson()
+        public void UpdateSalesPerson(SalesPerson person)
+        {
+
+        }
+
+        /*
+         * Insert Methods
+         */
+
+        public void InsertCar(Car car)
+        {
+            try
+            {
+                // SQL Insert Query
+                string query = $"INSERT INTO Cars(Make, Model, VIN, RegistrationNumber, CarType) VALUES ('{car.Make}','{car.Model}','{car.Vin}','{car.RegistrationNumber}','{car.Type}')";
+
+                // 
+
+                // Connection object
+                SqlConnection connection = new SqlConnection(connectionString);
+                // command object
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Open DB connection
+                connection.Open();
+
+                // Execute query
+                command.ExecuteNonQuery();
+
+                // Close DB connection
+                connection.Close();
+
+                // Dispose objecet
+                command.Dispose();
+            }
+            catch(SqlException)
+            {
+                //ViewModel.MessageBox.Show();
+            }
+        }
+
+        public void InsertSale(Sale sale)
+        {
+
+        }
+
+        public void InsertSalesPerson(SalesPerson person)
         {
 
         }

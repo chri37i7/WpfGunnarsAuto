@@ -5,73 +5,240 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfGunnarsAuto"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Gunnars Auto - Control Panel"
+        Background="DarkSeaGreen"
         Height="650"
-        Width="1000">
+        MinHeight="650"
+        Width="1000"
+        MinWidth="650">
     <Grid>
-        <!-- Columns -->
+        <!-- Columns & Rows -->
+        <!-- #region Column & Rows-->
+        <!-- #region Column Definitions -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60*" />
-            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
-
-        <!-- Rows -->
+        <!-- #endregion -->
+        <!-- #region Row Definitions -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*"></RowDefinition>
-            <RowDefinition Height="225*"></RowDefinition>
-            <RowDefinition Height="37*"></RowDefinition>
-            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
+        <!-- #endregion -->
+        <!-- #endregion -->
+        <!-- Header -->
+        <!-- #region Header -->
+        <DockPanel Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="0"
+                   Background="AntiqueWhite">
 
-        <!-- DataGrid -->
-        <Border Grid.Column="0"
-                Grid.Row="1"
-                Padding="2"
-                BorderThickness="1"
-                Background="#FFD5DFE5"
-                Margin="5,12,1,0"
-                CornerRadius="5">
-            <DataGrid ItemsSource="{Binding Cars}"
-                      SelectedItem="{Binding SelectedCar}"
-                      AutoGenerateColumns="False"
+        </DockPanel>
+        <!-- #endregion -->
+        <!-- Center DataGrids -->
+        <!-- #region Left Center DataGrids -->
+        <Grid Grid.Column="0"
+              Grid.Row="1"
+              Background="FloralWhite">
+            <!-- Rows -->
+            <!-- #region Row Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <!-- #endregion -->
+            <!-- Cars -->
+            <!-- #region Top Car DataGrid -->
+            <DataGrid Grid.Row="0"
+                      Margin="10,5,0,0"
+                      ItemsSource="{Binding Cars}"
+                      SelectedItem="{Binding SelectedSalesCar}"
                       IsReadOnly="True"
-                      BorderThickness="0"
-                      BorderBrush="#FFD5DFE5"
+                      AutoGenerateColumns="False"
                       HeadersVisibility="Column"
-                      GridLinesVisibility="Vertical"
-                      SelectionMode="Single"
-                      Background="White">
+                      GridLinesVisibility="All"
+                      VerticalGridLinesBrush="#FFD5DFE5"
+                      HorizontalGridLinesBrush="#FFD5DFE5">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Car Brand"
-                                        Binding="{Binding Model}" />
-                    <DataGridTextColumn Header="Car Model"
+                    <DataGridTextColumn Header="Make"
                                         Binding="{Binding Make}" />
-                    <DataGridTextColumn Header="Car Type"
-                                        Binding="{Binding CarType}" />
-                    <DataGridTextColumn Header="Car VIN number"
-                                        Binding="{Binding VIN}" />
-                    <DataGridTextColumn Header="Car Registration Number"
+                    <DataGridTextColumn Header="Model"
+                                        Binding="{Binding Model}" />
+                    <DataGridTextColumn Header="Type"
+                                        Binding="{Binding Type}" />
+                    <DataGridTextColumn Header="Registration Number"
                                         Binding="{Binding RegistrationNumber}" />
+                    <DataGridTextColumn Header="VIN Number"
+                                        Binding="{Binding Vin}" />
                 </DataGrid.Columns>
             </DataGrid>
-        </Border>
+            <!-- #endregion -->
+            <!-- Sales -->
+            <!-- #region Bottom Sales DataGrid -->
+            <DataGrid Grid.Row="1"
+                      Margin="10,0,0,5"
+                      ItemsSource="{Binding Sales}"
+                      SelectedItem="{Binding SelectedSale}"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="All"
+                      VerticalGridLinesBrush="#FFD5DFE5"
+                      HorizontalGridLinesBrush="#FFD5DFE5">
 
-        <!-- Controls GroupBox -->
-        <GroupBox Grid.Column="1"
-                  Header="Controls"
-                  BorderThickness="2"
-                  FontSize="16"
-                  Margin="0,79,0,0"
-                  Grid.RowSpan="2">
-            <StackPanel>
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Select User:"
-                               Width="148" />
-                        <ComboBox Width="144" />
+            </DataGrid>
+            <!-- #endregion -->
+        </Grid>
+        <!-- #endregion -->
+        <!-- Center Controls -->
+        <!-- #Region Right Center Controls -->
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Background="FloralWhite">
+            <!-- #region Row Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- #endregion -->
+
+            <!-- #region Header Logo -->
+            <Canvas Grid.Row="0">
+                <MediaElement Source="C:\Users\chri37i7\source\repos\WpfGunnarsAuto\WpfGunnarsAuto\Images\Logo\logo.gif"
+                              Height="60"
+                              Width="300"
+                              Stretch="Fill"
+                              IsMuted="False"
+                              LoadedBehavior="Play">
+                    <MediaElement.OpacityMask>
+                        <ImageBrush ImageSource="C:\Users\chri37i7\source\repos\WpfGunnarsAuto\WpfGunnarsAuto\Images\Logo\logo.gif" />
+                    </MediaElement.OpacityMask>
+                </MediaElement>
+            </Canvas>
+            <!-- #endregion -->
+
+            <!-- #region User Controls -->
+            <DockPanel Grid.Row="1">
+                <StackPanel HorizontalAlignment="Center">
+                    <!-- #region Select User Controls-->
+                    <StackPanel Orientation="Vertical"
+                                Width="120">
+                        <TextBlock Text="Select User:"
+                                   TextAlignment="Center"
+                                   FontSize="18"
+                                   FontWeight="Light" />
+                        <ComboBox x:Name="comboBox_SelectUser"
+                                  Height="35"
+                                  FontSize="18"
+                                  HorizontalContentAlignment="Center"
+                                  ItemsSource="{Binding SalesPersons}"
+                                  DisplayMemberPath="Initials" />
                     </StackPanel>
+                    <!-- #endregion -->
+                    <!-- #region Add Car Controls-->
+                    <GroupBox Header="Add Car"
+                              Margin="0,20,0,0"
+                              Width="290"
+                              MinHeight="375">
+                        <StackPanel Orientation="Vertical"
+                                    Width="200"
+                                    Margin="0,10,0,0">
+                            <StackPanel Orientation="Vertical"
+                                        Height="50">
+                                <TextBlock Text="Car Maker:"
+                                           TextAlignment="Center"
+                                           FontSize="16"
+                                           FontWeight="ExtraLight" />
+                                <TextBox x:Name="textBox_CarMaker"
+                                         Text="Lamborghini"
+                                         TextAlignment="Center"
+                                         Height="25"
+                                         FontSize="16"
+                                         VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                        Margin="0,10,0,0"
+                                        Height="50">
+                                <TextBlock Text="Car Model:"
+                                           TextAlignment="Center"
+                                           FontSize="16"
+                                           FontWeight="ExtraLight" />
+                                <TextBox x:Name="textBox_CarModel"
+                                         Text="Gallardo SV"
+                                         TextAlignment="Center"
+                                         Height="25"
+                                         FontSize="16"
+                                         VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                        Margin="0,10,0,0"
+                                        Height="50">
+                                <TextBlock Text="Car VIN:"
+                                           TextAlignment="Center"
+                                           FontSize="16"
+                                           FontWeight="ExtraLight" />
+                                <TextBox x:Name="textBox_CarVin"
+                                         Text="ZHWUF3ZD0HLA06392"
+                                         TextAlignment="Center"
+                                         Height="25"
+                                         FontSize="16"
+                                         VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                        Margin="0,10,0,0"
+                                        Height="50">
+                                <TextBlock Text="Registration Number:"
+                                           TextAlignment="Center"
+                                           FontSize="16"
+                                           FontWeight="ExtraLight" />
+                                <TextBox x:Name="textBox_RegistrationNumber"
+                                         Text="XD 69 420"
+                                         TextAlignment="Center"
+                                         Height="25"
+                                         FontSize="16"
+                                         VerticalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                        Margin="0,10,0,10"
+                                        Height="60">
+                                <TextBlock Text="Car Type:"
+                                           TextAlignment="Center"
+                                           FontSize="16"
+                                           FontWeight="ExtraLight" />
+                                <ComboBox x:Name="comboBox_CarType"
+                                          Text="Placeholder"
+                                          Height="29"
+                                          FontSize="16"
+                                          VerticalAlignment="Center">
+                                    <ComboBoxItem Content="Used" />
+                                    <ComboBoxItem Content="New" />
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <Button x:Name="button_AddCar"
+                                        Height="30"
+                                        Margin="0,0,00,5"
+                                        Content="Add Car"
+                                        Click="Button_AddCar_Click" />
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <!-- #endregion -->
                 </StackPanel>
-            </StackPanel>
-        </GroupBox>
+            </DockPanel>
+            <!-- #endregion -->
+        </Grid>
+        <!-- #endregion -->
+        <!-- Footer -->
+        <!-- #region Footer -->
+        <DockPanel Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="2"
+                   Background="AntiqueWhite">
+
+        </DockPanel>
+        <!-- #endregion -->
     </Grid>
 </Window>

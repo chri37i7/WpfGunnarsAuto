@@ -8,14 +8,14 @@ namespace WpfGunnarsAuto
     class Car
     {
         // Constructor
-        public Car(int carId, string make, string model, string vin, string registrationNumber, string carType)
+        public Car(int carId, string make, string model, string vin, string registrationNumber, string type)
         {
             CarId = carId;
             Make = make;
             Model = model;
             Vin = vin;
             RegistrationNumber = registrationNumber;
-            CarType = carType;
+            Type = type;
         }
 
         // Properties
@@ -35,6 +35,6 @@ namespace WpfGunnarsAuto
         public string RegistrationNumber { get; set; }
 
         [StringLength(10)]
-        public string CarType { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -6,7 +6,10 @@
     <Application.Resources>
         
         <!-- DataGrid -->
-
+        <Style TargetType="DataGrid">
+            <Setter Property="BorderBrush"
+                    Value="#FFD5DFE5" />
+        </Style>
         
         <!--DataGridColumnHeader-->
         <Style TargetType="DataGridColumnHeader">
@@ -53,11 +56,15 @@
         <!-- DataGridCell -->
         <Style TargetType="DataGridCell">
             <Setter Property="FontSize"
-                    Value="27" />
+                    Value="18" />
             <Setter Property="Height"
                     Value="35" />
+            <Setter Property="Margin"
+                    Value="5,0,0,0" />
             <Setter Property="VerticalContentAlignment"
                     Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="Transparent" />
             <Style.Triggers>
                 <Trigger Property="IsSelected"
                          Value="True">
