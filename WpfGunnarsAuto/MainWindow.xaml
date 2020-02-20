@@ -60,8 +60,11 @@
                       HeadersVisibility="Column"
                       GridLinesVisibility="All"
                       VerticalGridLinesBrush="#FFD5DFE5"
-                      HorizontalGridLinesBrush="#FFD5DFE5">
+                      HorizontalGridLinesBrush="#FFD5DFE5"
+                      Background="FloralWhite">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Car ID"
+                                        Binding="{Binding CarId}" />
                     <DataGridTextColumn Header="Make"
                                         Binding="{Binding Make}" />
                     <DataGridTextColumn Header="Model"
@@ -86,8 +89,20 @@
                       HeadersVisibility="Column"
                       GridLinesVisibility="All"
                       VerticalGridLinesBrush="#FFD5DFE5"
-                      HorizontalGridLinesBrush="#FFD5DFE5">
-
+                      HorizontalGridLinesBrush="#FFD5DFE5"
+                      Background="FloralWhite">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Car ID"
+                                        Binding="{Binding CarId}"/>
+                    <DataGridTextColumn Header="Sale ID"
+                                        Binding="{Binding SaleId}"/>
+                    <DataGridTextColumn Header="Sales Person"
+                                        Binding="{Binding SalesPersonId}"/>
+                    <DataGridTextColumn Header="Sales Type"
+                                        Binding="{Binding SaleType}" />
+                    <DataGridTextColumn Header="Sales Price"
+                                        Binding="{Binding TransactionAmount}" />
+                </DataGrid.Columns>
             </DataGrid>
             <!-- #endregion -->
         </Grid>
