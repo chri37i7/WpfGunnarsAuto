@@ -167,7 +167,7 @@
                                            FontSize="16"
                                            FontWeight="ExtraLight" />
                                 <TextBox x:Name="textBox_CarMaker"
-                                         Text="Lamborghini"
+                                         Text=""
                                          TextAlignment="Center"
                                          Height="25"
                                          FontSize="16"
@@ -181,7 +181,7 @@
                                            FontSize="16"
                                            FontWeight="ExtraLight" />
                                 <TextBox x:Name="textBox_CarModel"
-                                         Text="Gallardo SV"
+                                         Text=""
                                          TextAlignment="Center"
                                          Height="25"
                                          FontSize="16"
@@ -195,7 +195,7 @@
                                            FontSize="16"
                                            FontWeight="ExtraLight" />
                                 <TextBox x:Name="textBox_CarVin"
-                                         Text="ZHWUF3ZD0HLA06392"
+                                         Text=""
                                          TextAlignment="Center"
                                          Height="25"
                                          FontSize="16"
@@ -209,7 +209,7 @@
                                            FontSize="16"
                                            FontWeight="ExtraLight" />
                                 <TextBox x:Name="textBox_RegistrationNumber"
-                                         Text="XD 69 420"
+                                         Text=""
                                          TextAlignment="Center"
                                          Height="25"
                                          FontSize="16"
